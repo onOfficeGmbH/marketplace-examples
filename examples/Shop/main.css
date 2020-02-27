@@ -1,0 +1,134 @@
+/* Demoseite onOffice Marketplace */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,700i&display=swap');
+
+/* Default Settings */
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+section {
+	padding: 50px 0;
+}
+
+h1 {
+	color: #ffffff;
+	font-size: 40px;
+	font-style: italic;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 25px;
+	font-weight: 700;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+a {
+	color: #69acdf;
+}
+
+a:hover {
+	color: #1f7cc4;
+}
+
+.bg-grey {
+	background-color: #efefef;
+}
+
+.clear {
+	clear: both;
+}
+
+/* Header */
+
+header {
+	background-image: url('img/header.jpg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	padding: 70px 0;
+}
+
+/* Teaser */
+
+.headline {
+	margin-bottom: 30px;
+}
+
+.teaser {
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.teaserimage {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 250px;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+#grundriss2d {
+	background-image: url('img/2d-grundriss.jpg');
+}
+
+#grundriss3d {
+	background-image: url('img/3d-grundriss.jpg');
+}
+
+#rundgang {
+	background-image: url('img/360-Grad-Rundgang.jpg');
+}
+
+a.product-price {
+	background-color: #69acdf;
+	color: #ffffff;
+	padding: 10px 25px;
+	font-size: 12px;
+	border-radius: 3px;
+	display: inline-block;
+	margin-bottom: 6px;
+}
+a.product-price.smaller {
+	background-color: #aaa;
+	padding:8px 20px;
+	font-size:11px;
+}
+
+
+a.product-price:hover {
+	text-decoration: none;
+	background-color: #90c5ee;
+}
+
+.order-result-transaction,
+.order-result-message
+{
+    margin-top:10px;
+}
+
+.order-result-transaction span,
+.order-result-message span
+{
+    display: inline-block;
+    font-weight: bold;
+    width: 150px;
+}
+
+.order-result-status_success
+{
+    color: #298221;
+}
+
+.order-result-status_error
+{
+    color: #ba0000;
+}
