@@ -18,7 +18,7 @@ function main()
 	echo '<!DOCTYPE html>'.
 		'<html lang="de">'.
 		generateHeader().
-		generateBody().'<script src="js/jquery-2.0.3.min.js"></script>'.'<script src="js/providerOrder.js"></script>'.
+		generateBody().'<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>'.'<script src="js/providerOrder.js"></script>'.
 		'</html>';
 
 }
