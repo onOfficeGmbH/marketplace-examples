@@ -23,8 +23,8 @@ Check out the [example code to unlock the provider](/examples/ProviderUnlock).
 
 ### Demo Shop
 
-The demo shop contains a frugal example, how this can be integrated
-in an existing online shop 
+The demo shop contains a basic example, how this can be integrated
+into an existing online shop 
 
 JavaScript is required to run this example in the browser.
 
