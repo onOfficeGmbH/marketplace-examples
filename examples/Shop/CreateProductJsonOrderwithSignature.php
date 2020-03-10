@@ -9,10 +9,6 @@
 main();
 
 
-/**
- *
- */
-
 function main()
 {
 	$parameterCacheId = postVariable('parametercacheid');
@@ -21,14 +17,13 @@ function main()
 	printJsonOrder($parameterCacheId, $productsTotalPrice);
 }
 
-
 /**
  *
  * @param string $parameterCacheId
  * @param string $productsTotalPrice
  *
+ * @throws Exception
  */
-
 function printJsonOrder($parameterCacheId, $productsTotalPrice)
 {
 	$products = postVariable('products');
@@ -65,20 +60,18 @@ function printJsonOrder($parameterCacheId, $productsTotalPrice)
  * @return string
  *
  */
-
 function jsonEncode($pData)
 {
 	return json_encode($pData, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_LINE_TERMINATORS);
 }
 
 /**
- *
  * @param string $jsonData
  * @param string $secret
  * @return string
  *
+ * @throws Exception
  */
-
 function sign($jsonData, $secret)
 {
 	$jsonDecodedContent = json_decode($jsonData, true);
@@ -95,12 +88,10 @@ function sign($jsonData, $secret)
 
 
 /**
- *
  * @param array $jsonContent
  * @return array
  *
  */
-
 function sortParameters(array $jsonContent)
 {
 	foreach ($jsonContent as $jsonKey => $jsonValue)
@@ -117,15 +108,13 @@ function sortParameters(array $jsonContent)
 	return $jsonContent;
 }
 
-
 /**
- *
  * @param array $jsonContent
  * @param string $secret
  * @return string
  *
+ * @throws Exception
  */
-
 function signJsonString(array $jsonContent, $secret)
 {
 	if (stringIsEmpty($secret, true))
@@ -143,12 +132,9 @@ function signJsonString(array $jsonContent, $secret)
 }
 
 /**
- *
  * @param string $value
  * @return bool
- *
  */
-
 function stringIsEmpty($value, $trim)
 {
 	return null === $value || '' === ($trim ? trim($value) : $value);
@@ -156,12 +142,9 @@ function stringIsEmpty($value, $trim)
 
 
 /**
- *
  * @param string $name
  * @return string
- *
  */
-
 function postVariable($name)
 {
 	$value = '';
