@@ -37,6 +37,7 @@ function printHtmlResult()
 	{
 
 		case 'success':
+		case 'inprocess':
 			$title = 'Vielen Dank f&uuml;r Ihren Kauf';
 			break;
 
