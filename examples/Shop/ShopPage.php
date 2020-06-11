@@ -8,10 +8,6 @@
 
 main();
 
-/**
- *
- */
-
 function main()
 {
 
@@ -24,11 +20,8 @@ function main()
 }
 
 /**
- *
  * @return string
- *
  */
-
 function generateHeader()
 {
 	return '<head>
@@ -43,11 +36,8 @@ function generateHeader()
 
 
 /**
- *
  * @return string
- *
  */
-
 function generateBody()
 {
 	$pDateTime = new DateTime();
@@ -135,11 +125,8 @@ function generateBody()
 }
 
 /**
- *
  * @return string
- *
  */
-
 function generateSingleProducts()
 {
 	$products = '';

@@ -8,21 +8,10 @@
 
 main();
 
-/**
- *
- */
-
 function main()
 {
 	printHtmlResult();
 }
-
-
-/**
- *
- * @param Request $pRequest
- *
- */
 
 function printHtmlResult()
 {
@@ -97,12 +86,11 @@ function printHtmlResult()
 
 }
 
-
 /**
  *
  * @param string $value
- * @retunr bool
  *
+ * @return bool
  */
 
 function isNotEmpty($value)
