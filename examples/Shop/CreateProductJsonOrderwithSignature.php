@@ -17,10 +17,32 @@ function main()
 {
 	$parameterCacheId = postVariable('parametercacheid');
 	$productsTotalPrice = postVariable('productstotalprice');
+	$onOfficeType = postVariable('onOfficeType');
 
-	printJsonOrder($parameterCacheId, $productsTotalPrice);
+	if ($onOfficeType !== '')
+	{
+		printJsonOnOfficeType($parameterCacheId, $onOfficeType);
+	}
+	else
+	{
+		printJsonOrder($parameterCacheId, $productsTotalPrice);
+	}
 }
 
+/**
+ * @param string $parameterCacheId
+ * @param string $onOfficeType
+ */
+function printJsonOnOfficeType($parameterCacheId, $onOfficeType)
+{
+	$pJsonOrder = new stdClass();
+
+	$pJsonOrder->onOfficeType = $onOfficeType;
+	$pJsonOrder->parametercacheid = $parameterCacheId;
+
+	$jsonOrder = jsonEncode($pJsonOrder);
+	echo sign($jsonOrder, 'test3');
+}
 
 /**
  *

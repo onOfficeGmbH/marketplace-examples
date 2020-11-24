@@ -1,3 +1,11 @@
+function processTypeToonOffice(type)
+{
+    signProcessData({
+        'onOfficeType': type,
+        'parametercacheid': getUrlParameter('parameterCacheId')
+    });
+}
+
 function processOrderToonOffice(obj, circleofUsers)
 {
     var productsTotalPrice = $(obj).attr('data-value');
