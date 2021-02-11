@@ -6,7 +6,7 @@
  *
  */
 
-class checkUrlSignature
+class CheckUrlSignature
 {
 	/**
 	 *
