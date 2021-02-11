@@ -50,10 +50,6 @@ function generateHeader()
 
 function generateBody()
 {
-	$pDateTime = new DateTime();
-	$pDateTime->add(new DateInterval('P1M'));
-	$aboStartDate = ($pDateTime->format('Y-m').'-01');
-
 	return '<body>
 		<header class="banner">
 			<div class="container">
