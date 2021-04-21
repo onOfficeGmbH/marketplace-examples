@@ -36,12 +36,9 @@
 			if ($this->checkSignature())
 			{
 				$this->printHtml();
+				return;
 			}
-			else
-
-			{
-				$this->printErrorMessage();
-			}
+			$this->printErrorMessage();
 		}
 
 		/**
@@ -55,10 +52,12 @@
 		{
 			$pCheckUrlSignature = new checkUrlSignature();
 
+			$inUrl = "http";
+
 			if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+			{
 				$inUrl = "https";
-			else
-				$inUrl = "http";
+			}
 
 			$inUrl .= "://";
 			$inUrl .= $_SERVER['HTTP_HOST'];
