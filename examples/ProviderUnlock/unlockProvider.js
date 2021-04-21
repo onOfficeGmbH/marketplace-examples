@@ -23,7 +23,8 @@ function unlockProvider(){
         data.append('parameterCacheId', parameterCacheId);
 
         var httpRequest = new XMLHttpRequest();
-        var url = '<URL TO FILE WITH API CALL "unlockProvider">';
+		//An example of implementation can be found here https://github.com/onOfficeGmbH/sdk/blob/master/examples/03-marketplace-unlock-provider.php
+        var url = '<PAGE CREATED BY PROVIDER MAKING API CALL "unlockProvider">';
 
         httpRequest.onreadystatechange  = function(){
             if (httpRequest.readyState === 4 && httpRequest.status === 200){
