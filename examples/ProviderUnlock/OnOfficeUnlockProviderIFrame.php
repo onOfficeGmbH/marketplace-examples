@@ -2,14 +2,13 @@
 
 	class OnOfficeUnlockProviderIFrame
 	{
-		/** */
 		const GET_PARAMETER_TOKEN = 'apiToken';
 
-		/** */
 		const GET_PARAMETER_CACHE_ID = 'parameterCacheId';
 
-		/** */
 		const GET_PARAMETER_SIGNATURE = 'signature';
+
+		const GET_PARAMETER_API_CLAIM = 'apiClaim';
 
 		/** @var string */
 		private $_getParameterToken;
@@ -17,19 +16,15 @@
 		/** @var string */
 		private $_getParameterCacheId;
 
-		/**
-		 *
-		 */
+		/** @var string */
+		private $_getParameterApiClaim;
 
 		public function __construct()
 		{
 			$this->_getParameterToken = $_REQUEST[self::GET_PARAMETER_TOKEN];
 			$this->_getParameterCacheId = $_REQUEST[self::GET_PARAMETER_CACHE_ID];
+			$this->_getParameterApiClaim = $_REQUEST[self::GET_PARAMETER_API_CLAIM];
 		}
-
-		/**
-		 *
-		 */
 
 		public function createHtmlCode()
 		{
@@ -38,19 +33,15 @@
 				$this->printHtml();
 			}
 			else
-
 			{
 				$this->printErrorMessage();
 			}
 		}
 
 		/**
-		 *
 		 * Just a demo function for checking the signature - contains pseudo code
 		 * @return bool
-		 *
 		 */
-
 		private function checkSignature()
 		{
 			$pCheckUrlSignature = new checkUrlSignature();
@@ -67,10 +58,6 @@
 			return $pCheckUrlSignature->verifySignature($inUrl, $_GET[self::GET_PARAMETER_SIGNATURE]);
 		}
 
-		/**
-		 *
-		 */
-
 		private function printErrorMessage()
 		{
 			$html = '
@@ -82,10 +69,6 @@
 	</html>';
 			echo $html;
 		}
-
-		/**
-		 *
-		 */
 
 		private function printHtml()
 		{
@@ -114,25 +97,19 @@
 		}
 
 		/**
-		 *
 		 * @return array
-		 *
 		 */
-
 		private function createUnlockProviderData()
 		{
-			$unlockProviderData = ['getParameterToken' => $this->_getParameterToken, 'getParameterCacheId' => $this->_getParameterCacheId, ];
+			$unlockProviderData = ['getParameterToken' => $this->_getParameterToken, 'getParameterCacheId' => $this->_getParameterCacheId, 'getParameterApiClaim' => $this->_getParameterApiClaim];
 			return $unlockProviderData;
 		}
 
 		/**
-		 *
 		 * @param string $name
 		 * @param string $value
 		 * @return string
-		 *
 		 */
-
 		private function attr($name, $value)
 		{
 			$attr = ($value !== null ? ' ' . $name . '="' . htmlspecialchars($value, ENT_QUOTES) . '"' : '');
@@ -140,35 +117,26 @@
 		}
 
 		/**
-		 *
 		 * @param string $path
 		 * @return string
-		 *
 		 */
-
 		private function getUriPath($path)
 		{
 			return 'https://beta.smart.onoffice.de/smart' . $path;
 		}
 
 		/**
-		 *
 		 * @param mixed $variable
 		 * @return string
-		 *
 		 */
-
 		private function json($variable)
 		{
 			return json_encode($variable, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_LINE_TERMINATORS);
 		}
 
 		/**
-		 *
 		 * @return string
-		 *
 		 */
-
 		private function getUnlockLabelText()
 		{
 			return 'Jetzt Freischalten';
