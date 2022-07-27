@@ -1,17 +1,9 @@
 <?php
 
 /**
- *
  * Used to create the JSON order based on the submitted data from AppMarketplaceDemoShop
- *
  */
-
 main();
-
-
-/**
- *
- */
 
 function main()
 {
@@ -45,12 +37,9 @@ function printJsonOnOfficeType($parameterCacheId, $onOfficeType)
 }
 
 /**
- *
  * @param string $parameterCacheId
  * @param string $productsTotalPrice
- *
  */
-
 function printJsonOrder($parameterCacheId, $productsTotalPrice)
 {
 	$products = postVariable('products');
@@ -82,25 +71,19 @@ function printJsonOrder($parameterCacheId, $productsTotalPrice)
 
 
 /**
- *
  * @param stdClass $pData
  * @return string
- *
  */
-
 function jsonEncode($pData)
 {
 	return json_encode($pData, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_LINE_TERMINATORS);
 }
 
 /**
- *
  * @param string $jsonData
  * @param string $secret
  * @return string
- *
  */
-
 function sign($jsonData, $secret)
 {
 	$jsonDecodedContent = json_decode($jsonData, true);
@@ -115,14 +98,10 @@ function sign($jsonData, $secret)
 	return jsonEncode($contentSorted);
 }
 
-
 /**
- *
  * @param array $jsonContent
  * @return array
- *
  */
-
 function sortParameters(array $jsonContent)
 {
 	foreach ($jsonContent as $jsonKey => $jsonValue)
@@ -139,15 +118,11 @@ function sortParameters(array $jsonContent)
 	return $jsonContent;
 }
 
-
 /**
- *
  * @param array $jsonContent
  * @param string $secret
  * @return string
- *
  */
-
 function signJsonString(array $jsonContent, $secret)
 {
 	if (stringIsEmpty($secret, true))
@@ -165,25 +140,18 @@ function signJsonString(array $jsonContent, $secret)
 }
 
 /**
- *
  * @param string $value
  * @return bool
- *
  */
-
 function stringIsEmpty($value, $trim)
 {
 	return null === $value || '' === ($trim ? trim($value) : $value);
 }
 
-
 /**
- *
  * @param string $name
  * @return string
- *
  */
-
 function postVariable($name)
 {
 	$value = '';

@@ -1,16 +1,10 @@
 <?php
 
 /**
- *
  * Sample for the marketplace services page to test buying of products
- *
  */
 
 main();
-
-/**
- *
- */
 
 function main()
 {
@@ -24,11 +18,8 @@ function main()
 }
 
 /**
- *
  * @return string
- *
  */
-
 function generateHeader()
 {
 	return '<head>
@@ -41,13 +32,9 @@ function generateHeader()
 	</head>';
 }
 
-
 /**
- *
  * @return string
- *
  */
-
 function generateBody()
 {
 	$pDateTime = new DateTime();
@@ -155,11 +142,8 @@ function generateBody()
 }
 
 /**
- *
  * @return string
- *
  */
-
 function generateSingleProducts()
 {
 	$products = '';
