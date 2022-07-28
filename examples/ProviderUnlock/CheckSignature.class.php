@@ -1,22 +1,16 @@
 <?php
 
 /**
- *
  * script to show how signature check can be made
- *
  */
-
 class CheckUrlSignature
 {
 	/**
-	 *
 	 * Just a demo function for checking the signature
 	 * @param string $inUrl
 	 * @param string $signature
 	 * @return bool
-	 *
 	 */
-
 	public function verifySignature($inUrl, $signature)
 	{
 		$queryParameters = [];
