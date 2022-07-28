@@ -4,6 +4,8 @@
  * Sample for the marketplace services page to test buying of products
  */
 
+require_once 'checkSignature.class.php';
+
 main();
 
 function main()
@@ -37,9 +39,11 @@ function generateHeader()
  */
 function generateBody()
 {
-	$pDateTime = new DateTime();
-	$pDateTime->add(new DateInterval('P1M'));
-	$aboStartDate = ($pDateTime->format('Y-m').'-01');
+	if (!checkSignature())
+	{
+		$signatureError = 'The page could not be loaded. Url seems to be modified';
+		return $signatureError;
+	}
 
 	return '<body>
 		<header class="banner">
@@ -188,4 +192,25 @@ function generateSingleProducts()
 	}
 
 	return $products;
+}
+
+/**
+ * Just a demo function for checking the signature - contains pseudo code
+ * @return bool
+ */
+function checkSignature()
+{
+	$inSignature = 'signature';
+	$pCheckUrlSignature = new checkUrlSignature();
+
+	if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+		$inUrl = "https";
+	else
+		$inUrl = "http";
+
+	$inUrl .= "://";
+	$inUrl .= $_SERVER['HTTP_HOST'];
+	$inUrl .= $_SERVER['REQUEST_URI'];
+
+	return $pCheckUrlSignature->verifySignature($inUrl, $_GET[$inSignature]);
 }
