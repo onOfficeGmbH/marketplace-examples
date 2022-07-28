@@ -129,6 +129,26 @@ function generateBody()
 							<i class="fas fa-redo"></i> Abo starten (25,30 € pro Monat)</a>
 					</div>
 				</div>
+				
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-xs-12 teaser product-item">
+						<a href="#" class="product-price"
+							onclick="processTypeToonOffice(\'onOffice.service.refreshParent\');return false;">
+							<i class="fas fa-redo"></i> Refresh parent</a>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-xs-12 teaser product-item">
+						<a href="#" class="product-price"
+							onclick="processTypeToonOffice(\'onOffice.service.refreshParentAndClose\');return false;">
+							<i class="fas fa-redo"></i> Refresh parent and close</a>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-xs-12 teaser product-item">
+						<a href="#" class="product-price"
+							onclick="processTypeToonOffice(\'onOffice.service.closeProviderWindow\');return false;">
+							<i class="fas fa-redo"></i> Close provider window</a>
+					</div>
+				</div>
 			</div>
 		</section>
 	</body>';
