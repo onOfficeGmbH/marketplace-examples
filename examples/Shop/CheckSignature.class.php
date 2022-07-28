@@ -3,7 +3,7 @@
 /**
  * script to show how signature check can be made
  */
-class checkUrlSignature
+class CheckUrlSignature
 {
 	/**
 	 * Just a demo function for checking the signature

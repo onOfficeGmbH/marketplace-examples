@@ -4,7 +4,7 @@
  * Sample for the marketplace services page to test buying of products
  */
 
-require_once 'checkSignature.class.php';
+require_once 'CheckUrlSignature.class.php';
 
 main();
 
@@ -204,7 +204,7 @@ function generateSingleProducts()
 function checkSignature()
 {
 	$inSignature = 'signature';
-	$pCheckUrlSignature = new checkUrlSignature();
+	$pCheckUrlSignature = new CheckUrlSignature();
 
 	if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
 		$inUrl = "https";
