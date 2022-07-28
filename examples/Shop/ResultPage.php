@@ -1,29 +1,19 @@
 <?php
 
 /**
- *
  * It's a sample file for the DemoShop, that handle the Results and is given as callbackurl
- *
  */
 
 main();
-
-/**
- *
- */
 
 function main()
 {
 	printHtmlResult();
 }
 
-
 /**
- *
  * @param Request $pRequest
- *
  */
-
 function printHtmlResult()
 {
 	$parameterTransactionid = getVariable('transactionid');
@@ -97,27 +87,20 @@ function printHtmlResult()
 
 }
 
-
 /**
- *
  * @param string $value
  * @retunr bool
- *
  */
-
 function isNotEmpty($value)
 {
 	return (null !== $value && '' !== trim($value));
 }
 
 /**
- *
  * @param string $name
  * @param string $value
  * @return string
- *
  */
-
 function attr($name, $value)
 {
 	$attr = '';
@@ -130,14 +113,10 @@ function attr($name, $value)
 	return $attr;
 }
 
-
 /**
- *
  * @param string $name
  * @return string
- *
  */
-
 function getVariable($name)
 {
 	$value = '';

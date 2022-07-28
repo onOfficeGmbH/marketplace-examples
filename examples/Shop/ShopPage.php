@@ -1,19 +1,18 @@
 <?php
 
 /**
- *
  * Sample for the marketplace services page to test buying of products
- *
  */
+
+require_once 'CheckUrlSignature.class.php';
 
 main();
 
-/**
- *
- */
-
 function main()
 {
+	//this claim should be saved, but only for this request.
+	//the claim need to be used to make api calls like reading estate, address or user infos based on this specific service call.
+	$extendedClaim = $_GET['apiClaim'];
 
 	echo '<!DOCTYPE html>'.
 		'<html lang="de">'.
@@ -24,11 +23,8 @@ function main()
 }
 
 /**
- *
  * @return string
- *
  */
-
 function generateHeader()
 {
 	return '<head>
@@ -41,18 +37,16 @@ function generateHeader()
 	</head>';
 }
 
-
 /**
- *
  * @return string
- *
  */
-
 function generateBody()
 {
-	$pDateTime = new DateTime();
-	$pDateTime->add(new DateInterval('P1M'));
-	$aboStartDate = ($pDateTime->format('Y-m').'-01');
+	if (!checkSignature())
+	{
+		$signatureError = 'The page could not be loaded. Url seems to be modified';
+		return $signatureError;
+	}
 
 	return '<body>
 		<header class="banner">
@@ -155,11 +149,8 @@ function generateBody()
 }
 
 /**
- *
  * @return string
- *
  */
-
 function generateSingleProducts()
 {
 	$products = '';
@@ -204,4 +195,25 @@ function generateSingleProducts()
 	}
 
 	return $products;
+}
+
+/**
+ * Just a demo function for checking the signature - contains pseudo code
+ * @return bool
+ */
+function checkSignature()
+{
+	$inSignature = 'signature';
+	$pCheckUrlSignature = new CheckUrlSignature();
+
+	if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+		$inUrl = "https";
+	else
+		$inUrl = "http";
+
+	$inUrl .= "://";
+	$inUrl .= $_SERVER['HTTP_HOST'];
+	$inUrl .= $_SERVER['REQUEST_URI'];
+
+	return $pCheckUrlSignature->verifySignature($inUrl, $_GET[$inSignature]);
 }
