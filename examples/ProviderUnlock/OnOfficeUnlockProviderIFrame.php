@@ -43,7 +43,7 @@
 		 */
 		private function checkSignature()
 		{
-			$pCheckUrlSignature = new checkUrlSignature();
+			$pCheckUrlSignature = new CheckUrlSignature();
 
 			if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
 				$inUrl = "https";
