@@ -10,6 +10,9 @@ main();
 
 function main()
 {
+	//this claim should be saved, but only for this request.
+	//the claim need to be used to make api calls like reading estate, address or user infos based on this specific service call.
+	$extendedClaim = $_GET['apiClaim'];
 
 	echo '<!DOCTYPE html>'.
 		'<html lang="de">'.
