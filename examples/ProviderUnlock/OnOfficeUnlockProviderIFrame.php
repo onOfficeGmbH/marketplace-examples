@@ -31,11 +31,10 @@
 			if ($this->checkSignature())
 			{
 				$this->printHtml();
+				return;
 			}
-			else
-			{
-				$this->printErrorMessage();
-			}
+
+			$this->printErrorMessage();
 		}
 
 		/**
