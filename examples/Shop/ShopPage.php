@@ -4,7 +4,7 @@
  * Sample for the marketplace services page to test buying of products
  */
 
-require_once 'CheckUrlSignature.class.php';
+require_once __DIR__ . '/CheckSignature.class.php';
 
 main();
 
