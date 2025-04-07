@@ -121,7 +121,7 @@
 		 */
 		private function getUriPath($path)
 		{
-			return 'https://beta.smart.onoffice.de/smart' . $path;
+			return 'https://crm-beta.onoffice.de/smart' . $path;
 		}
 
 		/**
