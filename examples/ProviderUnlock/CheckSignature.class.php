@@ -23,8 +23,10 @@ class CheckUrlSignature
 		unset($queryParameters['signature']);
 		ksort($queryParameters);
 
-		$cleanSourceUrl = $urlElements['scheme'].'://'.$urlElements['host'].$urlElements['path'];
-		$uriToCheck = $cleanSourceUrl.'?'.http_build_query($queryParameters);
+		$portSegment = isset($urlElements['port']) ? ':' . $urlElements['port'] : '';
+
+		$cleanSourceUrl = $urlElements['scheme'] . '://' . $urlElements['host'] . $portSegment . $urlElements['path'];
+		$uriToCheck = $cleanSourceUrl . '?' . http_build_query($queryParameters);
 
 		$checkSignature = hash_hmac('sha256', $uriToCheck, 'hier Anbietersecret einsetzen');
 
